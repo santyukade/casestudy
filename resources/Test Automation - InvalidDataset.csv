@@ -1,0 +1,2 @@
+_id,text,type,user.id,user.name.first,user.name.last,upvotes,userUpvoted
+58e008ad0aac31InvalidData,InvalidText,cat,58e007480aac31001185ecef,Kasimir,Schulz,11,null

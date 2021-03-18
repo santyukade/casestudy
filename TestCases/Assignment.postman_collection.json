@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "351843a3-0a62-4094-b500-20f46992b39d",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetID - Verify all response details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"console.log(\"************** pm.environment.get('_id') ************\"+pm.environment.get('_id'));\r",
+							"console.log(\"************** data._id ************\"+data._id);\r",
+							"console.log(\"************** {{_id}} ************\"+\"{{_id}}\");\r",
+							" if ( typeof(pm.environment.get('_id')) === 'undefined' ) {\r",
+							"        pm.environment.set('_id','');\r",
+							"    }\r",
+							"\r",
+							"  //  console.log(\"Verification Details are :\" +data._id+\" \"+data.text+\" \"+data.type+\" \"+pm.environment.get('user.id'));\r",
+							"   // console.log(data.user.id);\r",
+							"    //+\" \"+data.user.name.first);\r",
+							"\r",
+							"pm.test(\"Verification Details are : \"+data._id+\" Text:  \"+data.text+\"  Type : \"+data.type+\" User Id : \"+pm.environment.get('user.id'), () => {\r",
+							"   // let jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(responseBody.has(pm.environment.get('_id')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('text')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('type')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('user.id')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('user.name.first')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('user.name.last')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('upvotes')));\r",
+							"    pm.expect(responseBody.has(pm.environment.get('userUpvoted')));\r",
+							"\r",
+							"\r",
+							"//type\tuser.id\tuser.name.first\tuser.name.last\tupvotes\tuserUpvoted\r",
+							"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"    const responseJson = pm.response.json();\r",
+							"//check if response body contains a string\r",
+							"\r",
+							"// console.log(\"************** Testing ************\");\r",
+							"//     console.log(responseJson.text);\r",
+							"// tests[\"Verify if response body contains a string:- \"+data.text] = responseBody.has(pm.environment.get('_id'));\r",
+							"// tests[\"Verify if response body contains a string:- \"+data.text] = responseBody.has(pm.environment.get('_id'));\r",
+							"// tests[\"Verify if response body contains a string:- \"+data.text] = responseBody.has(pm.environment.get('_id'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "_id",
+						"value": "58e008ad0aac31001185ed0c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts/{{_id}}",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts",
+						"{{_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getID_Invalid Response code validation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid Test data - Status code is 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Confirm response message\", function () {\r",
+							"//   var jsonData = pm.response.json();\r",
+							"//   pm.expect(jsonData.message).to.eql();\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "_id",
+						"value": "58e008ad0aac31001185ed0c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts/{{_id}}",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts",
+						"{{_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "facrDetails_Invalid Response code validation Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid Test data - Status code is 400\", function () {\r",
+							"  pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Confirm response message\", function () {\r",
+							"//   var jsonData = pm.response.json();\r",
+							"//   pm.expect(jsonData.message).to.eql();\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "_id",
+						"value": "58e008ad0aac31001185ed0c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts1",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Details of fact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"    const responseJson = pm.response.json();",
+							"",
+							"//Validate Schema (Need Schema from BA/Devlopment team)",
+							"",
+							"",
+							"//Validate default values",
+							"",
+							"pm.test(\"The response has all properties\", () => {",
+							"    //parse the response json and test three properties",
+							"    console.log(responseJson);",
+							"    console.log(\"************\");",
+							"    console.log(responseJson[0].status.verified);",
+							"",
+							"    pm.expect(responseJson[0].status.sentCount).to.eql(1)",
+							"",
+							"pm.expect(responseJson[0].type).to.be.a('string');",
+							"pm.expect(responseJson[0].type).to.eql(\"cat\");",
+							"   pm.expect(responseJson[0].deleted).is.to.false;",
+							"",
+							"    //pm.expect(responseJson.id).to.have.lengthOf(1);",
+							"});",
+							"",
+							"// Validate response time",
+							"pm.test(\"Response time is less than 200ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"//Response data type validation",
+							"pm.test(\"Test data type of the response\", () => {",
+							"  pm.expect(responseJson).to.be.an(\"array\");",
+							"   pm.expect(responseJson[0].status.verified).is.to.true;",
+							"",
+							"pm.expect(responseJson).to.be.oneOf([\"status\"]);",
+							"",
+							"",
+							"    //pm.expect(responseJson[0].status.sentCount).to.be.a(\"number\");",
+							"  //pm.expect(responseJson[0].status).to.be.an(\"array\");",
+							"  //pm.expect(jsonData.website).to.be.undefined;",
+							"  //pm.expect(responseJson[0].status.feedback).to.be.null;",
+							"});",
+							"",
+							"",
+							"",
+							"//check if response body contains a string",
+							"tests[\"check if response body contains a string\"] = responseBody.has(\"Cats make about 100 different sounds. Dogs make only about 10.\");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SchemaValidation_NA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"    const responseJson = pm.response.json();",
+							"",
+							"//Validate Schema (Need Schema from BA/Devlopment team)",
+							"",
+							"",
+							"//Validate default values",
+							"",
+							"pm.test(\"The response has all properties\", () => {",
+							"    //parse the response json and test three properties",
+							"    console.log(responseJson);",
+							"    console.log(\"************\");",
+							"    console.log(responseJson[0].status.verified);",
+							"",
+							"    pm.expect(responseJson[0].status.sentCount).to.eql(1)",
+							"",
+							"pm.expect(responseJson[0].type).to.be.a('string');",
+							"pm.expect(responseJson[0].type).to.eql(\"cat\");",
+							"   pm.expect(responseJson[0].deleted).is.to.false;",
+							"",
+							"    //pm.expect(responseJson.id).to.have.lengthOf(1);",
+							"});",
+							"",
+							"// Validate response time",
+							"pm.test(\"Response time is less than 200ms\", () => {",
+							"  pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"//Response data type validation",
+							"pm.test(\"Test data type of the response\", () => {",
+							"  pm.expect(responseJson).to.be.an(\"array\");",
+							"   pm.expect(responseJson[0].status.verified).is.to.true;",
+							"",
+							"pm.expect(responseJson).to.be.oneOf([\"status\"]);",
+							"",
+							"",
+							"    //pm.expect(responseJson[0].status.sentCount).to.be.a(\"number\");",
+							"  //pm.expect(responseJson[0].status).to.be.an(\"array\");",
+							"  //pm.expect(jsonData.website).to.be.undefined;",
+							"  //pm.expect(responseJson[0].status.feedback).to.be.null;",
+							"});",
+							"",
+							"",
+							"",
+							"//check if response body contains a string",
+							"tests[\"check if response body contains a string\"] = responseBody.has(\"Cats make about 100 different sounds. Dogs make only about 10.\");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cat-fact.herokuapp.com/facts",
+					"protocol": "https",
+					"host": [
+						"cat-fact",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"facts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
